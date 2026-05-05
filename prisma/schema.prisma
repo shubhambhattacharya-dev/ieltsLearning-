@@ -1,0 +1,66 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model User {
+  id                String             @id @default(uuid())
+  email             String?            @unique
+  name              String?
+  createdAt         DateTime           @default(now())
+  updatedAt         DateTime           @updatedAt
+  conversations     Conversation[]
+  mistakes          Mistake[]
+  tokenUsage        TokenUsage[]
+  readingProgress   ReadingProgress[]
+}
+
+model Conversation {
+  id        String   @id @default(uuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id])
+  role      String   // 'user' or 'assistant'
+  content   String
+  type      String   // 'ielts', 'grammar', 'roleplay'
+  createdAt DateTime @default(now())
+}
+
+model Mistake {
+  id                String   @id @default(uuid())
+  userId            String
+  user              User     @relation(fields: [userId], references: [id])
+  originalText      String
+  correctedText     String
+  explanation       String
+  futureTips        String
+  realWorldExample  String?
+  category          String?  // e.g., 'tense', 'article', 'vocabulary'
+  createdAt         DateTime @default(now())
+}
+
+model TokenUsage {
+  id        String   @id @default(uuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id])
+  model     String   // e.g., 'llama-3.1-70b', 'gpt-4o'
+  tokens    Int
+  cost      Float?
+  createdAt DateTime @default(now())
+}
+
+model ReadingProgress {
+  id        String   @id @default(uuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id])
+  scriptId  String
+  character String
+  accuracy  Float
+  completed Boolean  @default(false)
+  createdAt DateTime @default(now())
+}

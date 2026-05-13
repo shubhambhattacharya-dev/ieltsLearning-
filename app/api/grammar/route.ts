@@ -21,15 +21,15 @@ export async function POST(req: NextRequest) {
 
     // 2. AI Prompt
     const systemPrompt = `
-      You are an expert English Grammar Tutor. 
+      You are an expert English Mentor. 
       Analyze the user's input for grammatical mistakes. 
-      Provide your response in STRICTURED JSON format:
+      Provide your response in STRUCTURED JSON format:
       {
         "originalText": "the text user provided",
         "correctedText": "the perfectly corrected version",
-        "explanation": "why it was wrong and what is the rule",
+        "explanation": "Professional linguistic explanation in English",
+        "understandingCard": "Conversational Hinglish explanation (jese hum normal baat karte hain) to make it stick in the brain",
         "futureTips": "how to avoid this specific mistake in the future",
-        "realWorldExample": "another example using the correct form",
         "category": "tense/article/vocabulary/etc"
       }
     `;

@@ -16,11 +16,11 @@ import {
 export default function Home() {
   const exercises = [
     { name: "Grammar Lab", desc: "Diagnose and fix grammar mistakes with AI precision.", href: "/grammar", icon: <Sparkles className="text-blue-400" />, color: "#3b82f6" },
-    { name: "IELTS Interview", desc: "Face an AI examiner for realistic speaking practice.", href: "/interview", icon: <Mic2 className="text-purple-400" />, color: "#a855f7" },
+    { name: "Neural Speaking Lab", desc: "Rewire your brain to think in English and stop translating from Hindi.", href: "/interview", icon: <Brain className="text-pink-400" />, color: "#ec4899" },
+    { name: "Outreach Lab", desc: "Master the psychology of persuasive job & internship messaging.", href: "/outreach", icon: <Target className="text-indigo-400" />, color: "#6366f1" },
     { name: "Debate Room", desc: "Sharpen your logic and fluency by debating AI on hot topics.", href: "/debate", icon: <Swords className="text-red-400" />, color: "#ef4444" },
     { name: "Script Reading", desc: "Master your delivery by roleplaying movie scripts.", href: "/reading", icon: <BookOpen className="text-emerald-400" />, color: "#10b981" },
     { name: "Shadowing", desc: "Perfect your rhythm and native-like intonation.", href: "/shadowing", icon: <MessageSquare className="text-orange-400" />, color: "#f59e0b" },
-    { name: "Vocabulary", desc: "Expand your lexicon with contextual AI quizzes.", href: "/vocabulary", icon: <Zap className="text-yellow-400" />, color: "#eab308" },
   ];
 
   return (

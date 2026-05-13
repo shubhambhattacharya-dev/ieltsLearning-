@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Sparkles, CheckCircle2, AlertCircle, Info, ArrowRight } from "lucide-react";
+import { Sparkles, CheckCircle2, AlertCircle, Info, ArrowRight, Brain } from "lucide-react";
 
 interface GrammarResult {
   id: string;
@@ -112,12 +112,20 @@ export default function GrammarLab() {
             </div>
           </div>
 
-          <div className="card" style={{ marginBottom: '1.5rem' }}>
+          <div className="card" style={{ marginBottom: '1.5rem', background: 'rgba(255,255,255,0.02)' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '1rem', color: 'var(--primary)' }}>
               <Info size={18} />
-              <span style={{ fontWeight: 600 }}>Grammar Explanation</span>
+              <span style={{ fontWeight: 600 }}>Linguistic Explanation</span>
             </div>
-            <p style={{ lineHeight: 1.7 }}>{result.explanation}</p>
+            <p style={{ lineHeight: 1.7, opacity: 0.9 }}>{result.explanation}</p>
+          </div>
+
+          <div className="card" style={{ marginBottom: '1.5rem', background: 'rgba(168, 85, 247, 0.05)', border: '1px solid rgba(168, 85, 247, 0.2)' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '1rem', color: '#a855f7' }}>
+              <Brain size={18} />
+              <span style={{ fontWeight: 700 }}>Understanding Card (Bilingual)</span>
+            </div>
+            <p style={{ lineHeight: 1.7, fontStyle: 'italic', color: '#d8b4fe' }}>{(result as any).understandingCard}</p>
           </div>
 
           <div className="card" style={{ background: 'var(--gradient-primary)', color: 'white' }}>
